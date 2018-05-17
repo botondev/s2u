@@ -14,3 +14,9 @@ Symfony 2.8.39 was successfully installed. Now you can:
         2. Browse to the http://localhost:8000 URL.
 
     * Read the documentation at https://symfony.com/doc
+
+Commands:
+
+    php app/console
+    php app/console generate:bundle
+    
