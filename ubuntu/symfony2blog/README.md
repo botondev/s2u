@@ -17,6 +17,13 @@ Symfony 2.8.39 was successfully installed. Now you can:
 
 Commands:
 
+    composer update
+    composer install
     php app/console
     php app/console generate:bundle
+    php app/console generate:doctrine:entities ModelBundle:EntityName
+    php app/console doctrine:migrations:diff
+    php app/console doctrine:migrations:migrate
+    php app/console doctrine:fixtures:load
+    
     
