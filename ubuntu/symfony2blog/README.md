@@ -26,4 +26,17 @@ Commands:
     php app/console doctrine:migrations:migrate
     php app/console doctrine:fixtures:load
     
+Test runner commands for phpunit.
+First we have to intall phpunit with
+
+    sudo apt install phpunit
     
+Then we can run the phpunit tests:
+
+    phpunit -c app
+
+Install bundle's own public assets under the real www public folder
+
+    php app/console assets:install --symlink
+
+The --symlink option is used to avoid duplications. 
