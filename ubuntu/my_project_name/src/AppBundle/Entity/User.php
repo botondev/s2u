@@ -8,6 +8,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -53,6 +54,11 @@ class User
      */
     private  $firstComment;
 
+    public function __construct()
+    {
+        $this->id = User::new();
+        $this->commentsAuthored = new ArrayCollection();
+    }
 
     public function getReadComments() {
         return $this->commentsRead;
