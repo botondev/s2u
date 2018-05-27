@@ -8,7 +8,7 @@
 
 namespace AppBundle\Entity;
 
-use AppBundle\Entity\User;
+use AppBundle\Entity\User as User;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -38,4 +38,16 @@ class Comment
      * @ORM\ManyToOne(targetEntity="User", inversedBy="commentsAuthored")
      */
     private $author;
+
+    public function setAuthor(User $author) {
+        $this->author = $author;
+    }
+
+    public function addUserFavorite(User $user) {
+        $this->userFavorites[] = $user;
+    }
+
+    public function removeUserFavorite(User $user) {
+        $this->userFavorites-removeElement($user);
+    }
 }

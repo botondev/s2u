@@ -53,11 +53,37 @@ class User
      */
     private  $firstComment;
 
+
     public function getReadComments() {
         return $this->commentsRead;
+    }
+
+    public function markCommentRead(Comment $comment) {
+        // Collections implement ArrayAccess
+        $this->commentsRead[] = $comment;
+    }
+
+    public function addComment(Comment $comment) {
+        if (count($this->commentsAuthored) == 0) {
+            $this->setFirstComment($comment);
+        }
+        $this->commentsAuthored[] = $comment;
+        $comment-setAuthor($this);
     }
 
     public function setFirstComment(Comment $c) {
         $this->firstComment = $c;
     }
+
+    public function addFavorite(Comment $comment) {
+        $this->favorites->add($comment);
+        $comment->addUserFavorite($this);
+    }
+
+    public function removeFavorite(Comment $comment) {
+        $this->favorites->removeElement($comment);
+        $comment->removeUserFavorite($this);
+    }
+
+
 }
