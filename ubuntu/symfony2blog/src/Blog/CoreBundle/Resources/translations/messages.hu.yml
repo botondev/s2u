@@ -1,3 +1,9 @@
 home: Otthon
+
+by: írta
+read.more: Olvasd tovább
+
 post:
   plural: Hozzászólások
+  latest: Legújabb cikkek
+  on: Létrehozva
