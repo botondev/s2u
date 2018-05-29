@@ -3,8 +3,12 @@ home: Otthon
 by: írta
 read.more: Olvasd tovább
 author: Szerző
+author:
+author.empty.posts: Ez a szerző még nem tett közzé cikket.
 
 post:
   plural: Hozzászólások
   latest: Legújabb cikkek
   on: Létrehozva
+  by: A cikk szerzője
+  by.author: A cikket %name% írta
