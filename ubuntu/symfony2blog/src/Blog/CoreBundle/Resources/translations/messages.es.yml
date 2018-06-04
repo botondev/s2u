@@ -1,9 +1,13 @@
 home: Inicio
 
+on: en
 by: por
 read.more: Leer más
-author: Autor
+name: Nombre
+send: Enviar
+
 author:
+author.title: Autor
 author.empty.posts: Este author no ha escrito ningún post todavía.
 
 post:
@@ -12,3 +16,8 @@ post:
   on: Publicado en
   by: Posts por
   by.author: Posts por %name%
+  comments: '{0} Sin comentarios|{1} %count% comentario|]1,Inf] %count% comentarios'
+
+comment:
+  singular: Comentario
+  plural:  Comentarios

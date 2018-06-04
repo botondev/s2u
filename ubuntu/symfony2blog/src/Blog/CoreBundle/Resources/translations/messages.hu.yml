@@ -1,9 +1,13 @@
 home: Otthon
 
+on: -on
 by: írta
 read.more: Olvasd tovább
-author: Szerző
+name: Név
+send: Küldés
+
 author:
+author.title: Szerző
 author.empty.posts: Ez a szerző még nem tett közzé cikket.
 
 post:
@@ -12,3 +16,8 @@ post:
   on: Létrehozva
   by: A cikk szerzője
   by.author: A cikket %name% írta
+  comments: '{0} Nincs hozzászólás |{1} %count% hozzászólás|]1,Inf] %count% hozzászólások'
+
+comment:
+  singular: Hozzászólás
+  plural: Hozzászólások
