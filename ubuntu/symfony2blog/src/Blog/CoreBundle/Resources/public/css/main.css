@@ -102,6 +102,12 @@ a:active {
     text-decoration: underline;
 }
 
+p.session-message {
+    padding: 5px;
+    background-color: #007b00;
+    color: #fff;
+}
+
 form label {
     display: block;
     font-style: italic;
