@@ -1,0 +1,8 @@
+example_homepage:
+    path:     /
+    defaults: { _controller: ExampleBundle:Default:index }
+
+example:
+    path:   /example/
+    defaults: { _controller: ExampleBundle:Example:test }
+
