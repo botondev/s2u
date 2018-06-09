@@ -57,6 +57,10 @@ class Tags extends AbstractFixture implements OrderedFixtureInterface
             }
         }
 
+        $unusedTag = new Tag();
+        $unusedTag->setName("Unused Tag");
+
+        $manager->persist($unusedTag);
         $manager->flush();
     }
 }

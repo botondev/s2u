@@ -32,9 +32,15 @@ class PostController extends Controller
             ->getRepository('ModelBundle:Post')
             ->findLatest(5);
 
+
+        $usedTags = $this->getDoctrine()
+            ->getRepository('ModelBundle:Tag')
+            ->findUsedTags();
+
         return array(
             'posts' => $posts,
-            'latestPosts' => $latestPosts
+            'latestPosts' => $latestPosts,
+            'usedTags' => $usedTags
         );
     }
 
