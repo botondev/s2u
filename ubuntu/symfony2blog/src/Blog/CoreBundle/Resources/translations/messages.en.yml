@@ -22,3 +22,6 @@ comment:
   singular: Comment
   plural: Comments
   write: Write your comment
+
+tag:
+  cloud: Tag cloud

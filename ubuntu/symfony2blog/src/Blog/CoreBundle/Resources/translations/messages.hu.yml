@@ -22,3 +22,6 @@ comment:
   singular: Hozzászólás
   plural: Hozzászólások
   write: Szólj hozzá
+
+tag:
+  cloud: Tag felhő

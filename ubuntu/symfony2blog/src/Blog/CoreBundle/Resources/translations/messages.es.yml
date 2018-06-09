@@ -22,3 +22,6 @@ comment:
   singular: Comentario
   plural:  Comentarios
   write: Escribe tu comentario
+
+tag:
+  cloud: Tag nube
