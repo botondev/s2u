@@ -64,6 +64,12 @@ class Post extends Timestampable
     private $comments;
 
     /**
+     * @var ArrayCollection
+     * @ORM\ManyToMany(targetEntity="Tag", inversedBy="posts")
+     */
+    private $tags;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -209,5 +215,19 @@ class Post extends Timestampable
     public function getComments()
     {
         return $this->comments;
+    }
+
+    /**
+     * Add tag
+     *
+     * @param Tag $tag
+     *
+     * @return Post
+     */
+    public function addTag(Tag $tag)
+    {
+        $this->tags[] = $tag;
+
+        return $this;
     }
 }

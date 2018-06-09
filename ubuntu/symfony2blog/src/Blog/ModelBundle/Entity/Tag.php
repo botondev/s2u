@@ -28,9 +28,9 @@ class Tag
 
     /**
      * @var ArrayCollection
-     * @ORM\ManyToMany(targetEntity="Tag", mappedBy="tags")
+     * @ORM\ManyToMany(targetEntity="Post", mappedBy="tags")
      */
-    private $articles;
+    private $posts;
 
     /**
      * @var string
@@ -42,11 +42,11 @@ class Tag
 
     public function __construct()
     {
-        $this->articles = new ArrayCollection();
+        $this->posts = new ArrayCollection();
     }
 
-    public function addArticle(Article $article)
+    public function addArticle(Article $post)
     {
-        $this->articles[] = $article;
+        $this->posts[] = $post;
     }
 }
