@@ -65,7 +65,7 @@ class Post extends Timestampable
 
     /**
      * @var ArrayCollection
-     * @ORM\ManyToMany(targetEntity="Tag", inversedBy="posts")
+     * @ORM\ManyToMany(targetEntity="Tag", inversedBy="posts", cascade={"persist"})
      */
     private $tags;
 
@@ -74,7 +74,8 @@ class Post extends Timestampable
      */
     public function __construct()
     {
-        $this->comments = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->comments = new ArrayCollection();
+        $this->tags = new ArrayCollection();
     }
 
     /**
@@ -226,8 +227,22 @@ class Post extends Timestampable
      */
     public function addTag(Tag $tag)
     {
+        foreach($this->tags as $existingTag) {
+            if ($existingTag->getName() === $tag->getName()){
+                return $this;
+            }
+        }
+
         $this->tags[] = $tag;
 
         return $this;
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTags()
+    {
+        return $this->tags;
     }
 }

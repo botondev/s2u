@@ -45,8 +45,18 @@ class Tag
         $this->posts = new ArrayCollection();
     }
 
-    public function addArticle(Article $post)
+    public function addArticle(Post $post)
     {
         $this->posts[] = $post;
+        return $this;
+    }
+
+    public function setName($name) {
+        $this->name = $name;
+        return $this;
+    }
+
+    public function getName() {
+        return $this->name;
     }
 }
