@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class TagController extends Controller
 {
     /**
-     * @Route("/tags")
+     * @Route("/tag/", name="tags")
      */
     public function tagsAction()
     {
@@ -18,12 +18,15 @@ class TagController extends Controller
     }
 
     /**
-     * @Route("taggedposts")
+     * @Route("/tag/{tagName}/", name="tagged_posts")
      */
-    public function taggedPostsAction()
+    public function taggedPostsAction($tagName)
     {
+        $taggedPosts = $this->getDoctrine()->getRepository('ModelBundle:Post')
+            ->findByTagName($tagName);
+
         return $this->render('CoreBundle:Tag:tagged_posts.html.twig', array(
-            // ...
+            'taggedPosts' => $taggedPosts
         ));
     }
 

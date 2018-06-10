@@ -13,7 +13,7 @@
         <h3>{{ 'tag.cloud' | trans }}</h3>
 
         {% for tag in usedTags %}
-            <p><a href="#">{{ tag.name }}</a></p>
+            <p><a href="{{ path('tagged_posts', {tagName: tag.name}) }}">{{ tag.name }}</a></p>
         {% endfor %}
     </aside>
 {% endblock %}

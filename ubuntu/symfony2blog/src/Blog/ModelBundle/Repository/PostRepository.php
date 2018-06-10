@@ -33,14 +33,25 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getQuery()->getSingleResult();
     }
 
+    public function findByTagName($tagName) {
+        $taggedPosts = $this->getQueryBuilder()
+            ->innerJoin('p.tags', 't')
+            ->where('t.name = :tagName')
+            ->setParameter('tagName', $tagName)
+            ->getQuery()
+            ->getResult();
+
+        return $taggedPosts;
+    }
+
     private function getQueryBuilder()
     {
         $em = $this->getEntityManager();
 
-        $gb = $em->getRepository('ModelBundle:Post')
+        $qb = $em->getRepository('ModelBundle:Post')
             ->createQueryBuilder('p');
 
-        return $gb;
+        return $qb;
     }
 
 }
