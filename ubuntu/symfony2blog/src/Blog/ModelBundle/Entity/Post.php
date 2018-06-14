@@ -161,7 +161,7 @@ class Post extends Timestampable
     }
 
     /**
-     * Set author
+     * Set Author
      *
      * @param \Blog\ModelBundle\Entity\Author $author
      *
@@ -175,7 +175,7 @@ class Post extends Timestampable
     }
 
     /**
-     * Get author
+     * Get Author
      *
      * @return \Blog\ModelBundle\Entity\Author
      */

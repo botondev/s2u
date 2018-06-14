@@ -15,7 +15,7 @@
     {% for post in posts %}
         {{ include('CoreBundle:Post:_post.html.twig', {post: post}) }}
     {% else %}
-        <p>{{ 'author.empty.posts' | trans }}</p>
+        <p>{{ 'Author.empty.posts' | trans }}</p>
     {% endfor %}
 
 {% endblock %}

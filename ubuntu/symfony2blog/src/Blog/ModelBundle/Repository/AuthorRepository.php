@@ -8,7 +8,7 @@ namespace Blog\ModelBundle\Repository;
 class AuthorRepository extends \Doctrine\ORM\EntityRepository
 {
     /**
-     * Find the first author
+     * Find the first Author
      *
      * @return Author
      * @throws \Doctrine\ORM\NoResultException

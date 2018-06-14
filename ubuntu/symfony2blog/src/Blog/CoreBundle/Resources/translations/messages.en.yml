@@ -8,7 +8,7 @@ send: Send
 
 author:
 author.title: Author
-author.empty.posts: This author did not write any post yet.
+author.empty.posts: This Author did not write any post yet.
 
 post:
   plural: Posts

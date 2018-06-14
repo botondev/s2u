@@ -28,7 +28,7 @@
  * It can be a mandatory requirement or an optional recommendation.
  * There is a special subclass, named PhpIniRequirement, to check a php.ini configuration.
  *
- * @author Tobias Schultze <http://tobion.de>
+ * @Author Tobias Schultze <http://tobion.de>
  */
 class Requirement
 {
@@ -110,7 +110,7 @@ class Requirement
 /**
  * Represents a PHP requirement in form of a php.ini configuration.
  *
- * @author Tobias Schultze <http://tobion.de>
+ * @Author Tobias Schultze <http://tobion.de>
  */
 class PhpIniRequirement extends Requirement
 {
@@ -164,7 +164,7 @@ class PhpIniRequirement extends Requirement
 /**
  * A RequirementCollection represents a set of Requirement instances.
  *
- * @author Tobias Schultze <http://tobion.de>
+ * @Author Tobias Schultze <http://tobion.de>
  */
 class RequirementCollection implements IteratorAggregate
 {
@@ -374,8 +374,8 @@ class RequirementCollection implements IteratorAggregate
  * This class specifies all requirements and optional recommendations that
  * are necessary to run the Symfony Standard Edition.
  *
- * @author Tobias Schultze <http://tobion.de>
- * @author Fabien Potencier <fabien@symfony.com>
+ * @Author Tobias Schultze <http://tobion.de>
+ * @Author Fabien Potencier <fabien@symfony.com>
  */
 class SymfonyRequirements extends RequirementCollection
 {

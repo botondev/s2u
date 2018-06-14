@@ -10,7 +10,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class AuthorController extends Controller
 {
     /**
-     * Show posts by author
+     * Show posts by Author
      *
      * @param string $slug
      *

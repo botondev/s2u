@@ -12,7 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 class AuthorControllerTest extends WebTestCase
 {
     /**
-     * Test show author
+     * Test show Author
      */
     public function testShow()
     {
@@ -23,7 +23,7 @@ class AuthorControllerTest extends WebTestCase
             ->getRepository('ModelBundle:Author')->findFirst();
         $authorPostsCount = $author->getPosts()->count();
 
-        $crawler = $client->request('GET', '/author/'.$author->getSlug());
+        $crawler = $client->request('GET', '/Author/'.$author->getSlug());
 
         $this->assertTrue($client->getResponse()->isSuccessful(),
             "The response was not successful");

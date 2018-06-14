@@ -8,7 +8,7 @@ send: Enviar
 
 author:
 author.title: Autor
-author.empty.posts: Este author no ha escrito ningún post todavía.
+author.empty.posts: Este Author no ha escrito ningún post todavía.
 
 post:
   plural: Posts

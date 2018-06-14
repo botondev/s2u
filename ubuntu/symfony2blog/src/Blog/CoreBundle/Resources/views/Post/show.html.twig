@@ -4,10 +4,10 @@
 
 {% block sidebar %}
     <aside>
-        <h3>{{ 'author.title' | trans }}</h3>
+        <h3>{{ 'Author.title' | trans }}</h3>
 
         <p>
-            <a href="{{ path('blog_core_author_show', { slug: post.author.slug }) }}" title="{{ 'post.by.author' | trans({ '%name%': post.author.name }) }}">
+            <a href="{{ path('blog_core_author_show', { slug: post.author.slug }) }}" title="{{ 'post.by.Author' | trans({ '%name%': post.author.name }) }}">
                 {{ post.author.name }}
             </a>
         </p>

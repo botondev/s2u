@@ -75,7 +75,7 @@ Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
     }
 
     /**
-     * Get an author
+     * Get an Author
      *
      * @param ObjectManager $manager
      * @param string $name
