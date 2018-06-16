@@ -5,3 +5,6 @@ example:
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+
+logout:
+    path: /logouta

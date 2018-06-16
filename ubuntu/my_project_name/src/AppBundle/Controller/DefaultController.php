@@ -14,6 +14,16 @@ use Symfony\Component\HttpFoundation\Response;
 class DefaultController extends Controller
 {
     /**
+     * @Route("/admin/")
+     *
+     * @return Response
+     */
+    public function adminAction()
+    {
+        return new Response('<html><body>Admin page!</body></html>');
+    }
+
+    /**
      * @Route("/", name="homepage")
      */
     public function indexAction(Request $request)
