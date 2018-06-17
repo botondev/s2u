@@ -13,6 +13,7 @@ security:
             memory:
                 users:
                     admin: { password: admin, roles: ['ROLE_ADMIN'] }
+                    botond: { password: botond, roles: ['ROLE_USER'] }
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -33,6 +34,7 @@ security:
 
     access_control:
         - { path: ^/admin/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/logout, roles: ROLE_USER}
         - { path: ^/admin/, roles: ROLE_ADMIN }
 
 #        main:
