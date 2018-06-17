@@ -19,18 +19,9 @@ class PostController extends Controller
      */
     public function indexAction()
     {
-//        return $this->render('CoreBundle:Post:index.html.twig', array(
-//            // ...
-//        ));
+        $posts = $this->getPostManager()->findAll();
 
-        $posts = $this
-            ->getDoctrine()
-            ->getRepository('ModelBundle:Post')
-            ->findAll();
-
-        $latestPosts = $this->getDoctrine()
-            ->getRepository('ModelBundle:Post')
-            ->findLatest(5);
+        $latestPosts = $this->getPostManager()->findLatest(5);
 
 
         $usedTags = $this->getDoctrine()
@@ -57,17 +48,7 @@ class PostController extends Controller
      */
     public function showAction($slug)
     {
-        $post = $this->getDoctrine()->getRepository('ModelBundle:Post')->findOneBy(
-                array(
-                    'slug' => $slug
-                )
-        );
-
-        if ($post === null)
-        {
-            throw $this->createNotFoundException('Post was not found');
-        }
-
+        $post = $this->getPostManager()->findBySlug($slug);
         $form = $this->createForm(new CommentType());
 
         return array(
@@ -125,6 +106,14 @@ class PostController extends Controller
         );
     }
 
-
+    /**
+     * Get Post manager
+     *
+     * @return PostManager
+     */
+    private function getPostManager()
+    {
+        return $this->get('postManager');
+    }
 
 }
