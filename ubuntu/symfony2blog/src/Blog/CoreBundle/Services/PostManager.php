@@ -10,6 +10,7 @@ namespace Blog\CoreBundle\Services;
 use Blog\ModelBundle\Entity\Comment;
 use Blog\ModelBundle\Entity\Post;
 use Blog\ModelBundle\Form\CommentType;
+use Blog\ModelBundle\Form\PostType;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
@@ -105,7 +106,7 @@ class PostManager
         $comment->setPost($post);
 
         $form = $this->formFactory->create(new CommentType(), $comment);
-        $form->formFactory->create($request);
+        $form->handleRequest($request);
 
         if ($form->isValid()) {
             $this->em->persist($comment);

@@ -23,7 +23,7 @@ class AuthorControllerTest extends WebTestCase
             ->getRepository('ModelBundle:Author')->findFirst();
         $authorPostsCount = $author->getPosts()->count();
 
-        $crawler = $client->request('GET', '/Author/'.$author->getSlug());
+        $crawler = $client->request('GET', '/en/Author/'.$author->getSlug());
 
         $this->assertTrue($client->getResponse()->isSuccessful(),
             "The response was not successful");

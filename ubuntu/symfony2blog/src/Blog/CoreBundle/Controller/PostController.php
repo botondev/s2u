@@ -8,11 +8,18 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Symfony\Component\BrowserKit\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * Class PostController
+ *
+ * @Route("/{_locale}", requirements={"en|es|hu"}, defaults={"_locale"="en"})
+ */
 class PostController extends Controller
 {
+
     /**
      * @Route("/")
      * @Template()
@@ -80,7 +87,7 @@ class PostController extends Controller
 
             return $this->redirect(
                 $this->generateUrl('blog_core_post_show',
-                array('slug' => $post->getSlug())
+                    array('slug' => $post->getSlug())
             ));
         }
 

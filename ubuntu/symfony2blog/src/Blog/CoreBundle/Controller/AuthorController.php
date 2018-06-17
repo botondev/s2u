@@ -7,6 +7,11 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Class AuthorController
+ * @package Blog\CoreBundle\Controller
+ * @Route("/{_locale}/author", requirements={"en|es|hu"}, defaults={"_locale"="en"})
+ */
 class AuthorController extends Controller
 {
     /**
@@ -17,7 +22,7 @@ class AuthorController extends Controller
      * @throws NotFoundHttpException
      * @return array
      *
-     * @Route("/author/{slug}")
+     * @Route("/{slug}")
      * @Template()
      */
     public function showAction($slug)
