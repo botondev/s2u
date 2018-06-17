@@ -9,20 +9,20 @@
         <thead>
             <tr>
                 <th>Tag Name</th>
-                <th></th>
+                <th>Edit|Delete</th>
             </tr>
         </thead>
         <tbody>
         {% for tag in tags %}
             <tr>
                 <td>{{ tag.name }}</td>
-                <td><a href="#">Edit</a></td>
+                <td><a href="{{ path('blog_admin_tag_edit',{'id' : tag.id}) }}">Edit</a></td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
     <ul>
-        <li><a href="#">Create new tag</a></li>
+        <li><a href="{{ path('blog_admin_tag_new') }}">Create new tag</a></li>
     </ul>
 {% endblock %}

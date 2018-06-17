@@ -1,0 +1,17 @@
+{% extends 'AdminBundle::layout.html.twig' %}
+
+{% block title %}Tag creation{% endblock %}
+
+{% block section %}
+    <h1>Tag creation</h1>
+
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Create tag"/>
+    {{ form_end(form) }}
+
+    <il>
+        <li><a href="{{ path('blog_admin_tag_index') }}"></a></li>
+    </il>
+{% endblock %}
