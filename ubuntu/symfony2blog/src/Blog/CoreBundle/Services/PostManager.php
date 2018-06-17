@@ -7,7 +7,13 @@
  */
 
 namespace Blog\CoreBundle\Services;
+use Blog\ModelBundle\Entity\Comment;
+use Blog\ModelBundle\Entity\Post;
+use Blog\ModelBundle\Form\CommentType;
 use Doctrine\ORM\EntityManager;
+use Symfony\Component\Form\FormFactoryInterface;
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -19,10 +25,20 @@ class PostManager
      * @var EntityManager
      */
     private $em;
+    /**
+     * @var FormFactoryInterface
+     */
+    private $formFactory;
 
-    public function __construct(EntityManager $em)
+    /**
+     * PostManager constructor.
+     * @param EntityManager $em
+     * @param FormFactoryInterface $formFactory
+     */
+    public function __construct(EntityManager $em, FormFactoryInterface $formFactory)
     {
         $this->em = $em;
+        $this->formFactory = $formFactory;
     }
 
     /**
@@ -74,5 +90,30 @@ class PostManager
         return $post;
     }
 
+    /**
+     * Create and validate a new comment
+     *
+     * @param Post $post
+     * @param Request $request
+     *
+     * @throws \Doctrine\ORM\OptimisticLockException
+     * @return FormInterface|boolean
+     */
+    public function createComment(Post $post, Request $request)
+    {
+        $comment = new Comment();
+        $comment->setPost($post);
 
+        $form = $this->formFactory->create(new CommentType(), $comment);
+        $form->formFactory->create($request);
+
+        if ($form->isValid()) {
+            $this->em->persist($comment);
+            $this->em->flush();
+
+            return true;
+        }
+
+        return $form;
+    }
 }

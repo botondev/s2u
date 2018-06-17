@@ -64,40 +64,24 @@ class PostController extends Controller
      * @param Request $request
      * @param string $slug
      *
-     * @throws NotFoundHttpException
      * @return array
      *
      * @Route("/{slug}/create-comment")
      * @Method("POST")
      * @Template("CoreBundle:Post:show.html.twig")
      */
-    public function createCommentAction($slug)
+    public function createCommentAction(Request $request, $slug)
     {
-        $post = $this->getDoctrine()->getRepository('ModelBundle:Post')->findOneBy(
-            array(
-                'slug' => $slug
-            )
-        );
+        $post = $this->getPostManager()->findBySlug($slug);
+        $form = $this->getPostManager()->createComment($post, $request);
 
-        if ($post === null) {
-            throw $this->createNotFoundException('Post was not found');
-        }
+        if($form === true) {
+            $this->get('session')->getFlashBag()->add('success', 'Your comment was submitted successfully');
 
-        $comment = new Comment();
-        $comment->setPost($post);
-
-        $form = $this->createForm(new CommentType(), $comment);
-        $form->handleRequest($this->getRequest());
-
-        if ($form->isValid()) {
-            $this->getDoctrine()->getManager()->persist($comment);
-            $this->getDoctrine()->getManager()->flush();
-
-            $this->get('session')->getFlashBag()->add('success', 'Your comment was submitted successfully.');
-
-            return $this->redirect($this->generateUrl('blog_core_post_show', array(
-                'slug' => $post->getSlug()
-            )));
+            return $this->redirect(
+                $this->generateUrl('blog_core_post_show',
+                array('slug' => $post->getSlug())
+            ));
         }
 
         return array(
