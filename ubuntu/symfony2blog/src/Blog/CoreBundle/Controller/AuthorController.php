@@ -22,28 +22,8 @@ class AuthorController extends Controller
      */
     public function showAction($slug)
     {
-        // I leave the old code here after refactoring, for an example.
-//        $author = $this->getDoctrine()->getRepository('ModelBundle:Author')
-//            ->findOneBy(
-//                array(
-//                    'slug' => $slug
-//                )
-//        );
-
         $author = $this->getAuthorManager()->findBySlug($slug);
         $posts = $this->getAuthorManager()->findPosts($author);
-
-//        if ($author === null)
-//        {
-//            throw $this->createNotFoundException('Author was not found');
-//        }
-
-//        $posts = $this->getDoctrine()->getRepository('ModelBundle:Post')
-//            ->findBy(
-//                array(
-//                    'author' => $author
-//                )
-//        );
 
         return array(
             'author' => $author,
