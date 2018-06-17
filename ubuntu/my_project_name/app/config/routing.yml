@@ -7,4 +7,4 @@ app:
     type: annotation
 
 logout:
-    path: /logouta
+    path: /logout
