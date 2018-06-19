@@ -39,6 +39,11 @@ services:
         tags:
             - { name: twig.extension }
 
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: Blog\ModelBundle\Entity\User
+
 # Twig Configuration
 twig:
     debug: '%kernel.debug%'
