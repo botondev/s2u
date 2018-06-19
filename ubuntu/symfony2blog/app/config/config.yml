@@ -43,6 +43,8 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: Blog\ModelBundle\Entity\User
+    group:
+        group_class: Blog\ModelBundle\Entity\User
 
 # Twig Configuration
 twig:
