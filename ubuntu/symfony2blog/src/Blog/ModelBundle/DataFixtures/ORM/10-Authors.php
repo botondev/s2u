@@ -93,11 +93,24 @@ class Authors extends AbstractFixture implements OrderedFixtureInterface, Contai
         $superAdmin->setPlainPassword('superadmin');
         $superAdmin->setEnabled(true);
 
+        /** @var \Blog\ModelBundle\Entity\User $botondev */
+        $botondev = $userManager->createUser();
+        $botondev->setUsername('botondev');
+        $botondev->addRole('ROLE_SUPER_ADMIN');
+        $botondev->setEmail('superadmin@botondev.com');
+        $botondev->setPlainPassword('botondev');
+        $botondev->setEnabled(true);
+        $a4 = new Author();
+        $a4->setName($botondev->getUsername());
+        $botondev->setAuthor($a4);
+
+
         $userManager->updateUser($u1);
         $userManager->updateUser($u2);
         $userManager->updateUser($u3);
         $userManager->updateUser($admin);
         $userManager->updateUser($superAdmin);
+        $userManager->updateUser($botondev);
 //        $manager->persist($a1);
 //        $manager->persist($a2);
 //        $manager->persist($a3);
