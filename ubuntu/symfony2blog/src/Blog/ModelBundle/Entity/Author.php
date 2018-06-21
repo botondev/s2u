@@ -46,6 +46,28 @@ class Author extends Timestampable
      */
     private $posts;
 
+    /**
+     * @var User
+     * @ORM\OneToOne(targetEntity="Blog\ModelBundle\Entity\User", mappedBy="author", cascade={"persist"})
+     */
+    private $user;
+
+    /**
+     * @return User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param User $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
     public function __construct()
     {
         $this->posts = new ArrayCollection();
