@@ -49,6 +49,7 @@ class Authors extends AbstractFixture implements OrderedFixtureInterface, Contai
         $u1->addRole('ROLE_AUTHOR');
         $u1->setEmail('david@gmail.com');
         $u1->setPlainPassword('david');
+        $u1->setEnabled(true);
         $a1 = new Author();
         $a1->setName($u1->getUsername());
         $u1->setAuthor($a1);
@@ -60,6 +61,7 @@ class Authors extends AbstractFixture implements OrderedFixtureInterface, Contai
         $u2->addRole('ROLE_AUTHOR');
         $u2->setEmail('eddie@gmail.com');
         $u2->setPlainPassword('eddie');
+        $u2->setEnabled(true);
         $a2 = new Author();
         $a2->setName($u2->getUsername());
         $u2->setAuthor($a2);
@@ -70,6 +72,7 @@ class Authors extends AbstractFixture implements OrderedFixtureInterface, Contai
         $u3->addRole('ROLE_AUTHOR');
         $u3->setEmail('elsa@gmail.com');
         $u3->setPlainPassword('elsa');
+        $u3->setEnabled(true);
         $a3 = new Author();
         $a3->setName($u3->getUsername());
         $u3->setAuthor($a3);
@@ -80,6 +83,7 @@ class Authors extends AbstractFixture implements OrderedFixtureInterface, Contai
         $admin->addRole('ROLE_ADMIN');
         $admin->setEmail('admin@gmail.com');
         $admin->setPlainPassword('admin');
+        $admin->setEnabled(true);
 
         $superAdmin = $userManager->createUser();
         /** @var \Blog\ModelBundle\Entity\User $superAdmin*/
@@ -87,6 +91,7 @@ class Authors extends AbstractFixture implements OrderedFixtureInterface, Contai
         $superAdmin->addRole('ROLE_SUPER_ADMIN');
         $superAdmin->setEmail('superadmin@gmail.com');
         $superAdmin->setPlainPassword('superadmin');
+        $superAdmin->setEnabled(true);
 
         $userManager->updateUser($u1);
         $userManager->updateUser($u2);
