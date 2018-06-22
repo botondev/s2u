@@ -26,8 +26,9 @@ class PostController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
+        $user = $this->get('security.token_storage')->getToken()->getUser();
 
-        $posts = $em->getRepository('ModelBundle:Post')->findAll();
+        $posts = $em->getRepository('ModelBundle:Post')->findByUser($user);
 
         return array(
             'posts' => $posts,

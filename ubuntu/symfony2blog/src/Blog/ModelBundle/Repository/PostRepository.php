@@ -2,6 +2,8 @@
 
 namespace Blog\ModelBundle\Repository;
 
+use Blog\ModelBundle\Entity\User;
+
 class PostRepository extends \Doctrine\ORM\EntityRepository
 {
     /**
@@ -42,6 +44,21 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
             ->getResult();
 
         return $taggedPosts;
+    }
+
+    /**
+     * @var User $user
+     * @return array
+     */
+    public function findByUser($user) {
+        $userPosts = $this->getQueryBuilder()
+            ->innerJoin('p.author', 'a')
+            ->where('a.id = :authorId')
+            ->setParameter('authorId', $user->getAuthor()->getId())
+            ->getQuery()
+            ->getResult();
+
+        return $userPosts;
     }
 
     private function getQueryBuilder()
