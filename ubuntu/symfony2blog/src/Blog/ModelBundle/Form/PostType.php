@@ -14,6 +14,7 @@ class PostType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('title')->add('slug')->add('body')
+            ->add('commentEnabledForAnonymous')
             ->add('author')->add('tags');
     }/**
      * {@inheritdoc}

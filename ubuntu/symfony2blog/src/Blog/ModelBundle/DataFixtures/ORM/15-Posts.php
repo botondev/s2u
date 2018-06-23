@@ -37,6 +37,7 @@ Aliquam felis risus, venenatis pulvinar massa in, sodales interdum ante. Donec a
  Curabitur ultricies auctor sem, sit amet ornare justo laoreet in. Morbi a risus pulvinar, dignissim erat ac, pulvinar elit. Phasellus ultrices auctor ipsum et ornare. 
  Vivamus a lectus auctor, porta nisi ut, blandit nunc. Cras non neque ipsum. Quisque massa metus, imperdiet nec vehicula eget, pretium ac purus.');
         $p1->setAuthor($this->getAuthor($manager, 'David'));
+        $p1->setCommentEnabledForAnonymous(false);
 
         $p2 = new Post();
         $p2->setTitle('Donec magna risus, rhoncus ut congue id');
@@ -52,6 +53,7 @@ Pellentesque lacinia justo commodo, vehicula nunc quis, fringilla libero. Ut ege
   Suspendisse venenatis eleifend ligula, nec viverra mi. Phasellus bibendum arcu ac ante fermentum, in tincidunt mauris ornare. Nulla nibh ipsum, congue at fringilla a, 
   commodo eget lectus.');
         $p2->setAuthor($this->getAuthor($manager, 'Eddie'));
+        $p2->setCommentEnabledForAnonymous(false);
 
         $p3 = new Post();
         $p3->setTitle('Donec magna risus, rhoncus ut congue id');

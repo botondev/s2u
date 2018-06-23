@@ -12,7 +12,6 @@ class CommentType extends AbstractType
     public function __construct($authorName = null)
     {
         $this->authorName = $authorName;
-        var_dump($authorName);
     }
 
     /**

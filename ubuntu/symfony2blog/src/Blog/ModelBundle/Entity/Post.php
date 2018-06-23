@@ -57,6 +57,12 @@ class Post extends Timestampable
     private $author;
 
     /**
+     * @var boolean
+     * @ORM\Column(name="commentEnabledForAnonymous", type="boolean")
+     */
+    private $commentEnabledForAnonymous = true;
+
+    /**
      * @var ArrayCollection
      *
      * @ORM\OneToMany(targetEntity="Comment", mappedBy="post", cascade={"remove"})
@@ -182,6 +188,22 @@ class Post extends Timestampable
     public function getAuthor()
     {
         return $this->author;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isCommentEnabledForAnonymous()
+    {
+        return $this->commentEnabledForAnonymous;
+    }
+
+    /**
+     * @param bool $commentEnabledForAnonymous
+     */
+    public function setCommentEnabledForAnonymous($commentEnabledForAnonymous)
+    {
+        $this->commentEnabledForAnonymous = $commentEnabledForAnonymous;
     }
 
     /**

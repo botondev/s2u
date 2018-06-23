@@ -26,6 +26,7 @@ comment:
   singular: Comment
   plural: Comments
   write: Write your comment
+  write.if.registered: Comments for this post are only available for registered users.
 
 tag:
   cloud: Tag cloud
