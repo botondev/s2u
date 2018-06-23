@@ -8,13 +8,20 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class CommentType extends AbstractType
 {
+    private $authorName;
+    public function __construct($authorName = null)
+    {
+        $this->authorName = $authorName;
+        var_dump($authorName);
+    }
+
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('authorName', null, array('label' => 'name'))
+            ->add('authorName', null, array('label' => 'name', 'data' => $this->authorName))
             ->add('body', null, array('label' => 'comment.singular'))
             ->add('post', 'submit', array('label' => 'send'));
     }

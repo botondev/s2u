@@ -3,6 +3,7 @@
 namespace Blog\CoreBundle\Controller;
 
 use Blog\ModelBundle\Entity\Comment;
+use Blog\ModelBundle\Entity\User;
 use Blog\ModelBundle\Form\CommentType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -55,8 +56,15 @@ class PostController extends Controller
      */
     public function showAction($slug)
     {
+        /** @var User $user */
+        $user = $this->getUser();
+        $userName = null;
+        if($user) {
+            $userName = $user->getUsername();
+        }
+
         $post = $this->getPostManager()->findBySlug($slug);
-        $form = $this->createForm(new CommentType());
+        $form = $this->createForm(new CommentType($userName));
 
         return array(
             'post' => $post,
