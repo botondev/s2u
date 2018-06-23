@@ -21,7 +21,7 @@
             <tr>
                 <td>{{ post.createdAt | date('Y-m-d H:i:s') }}</td>
                 <td>{%  if post.updatedAt %}{{ post.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ post.title }}</td>
+                <td>{{ post.title | decorator }}</td>
                 <td>{{ post.body | truncate(150) }}</td>
                 <td>
                     <ul>

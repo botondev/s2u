@@ -1,6 +1,6 @@
 {% extends "CoreBundle::layout.html.twig" %}
 
-{% block title %}{{ post.title }}{% endblock %}
+{% block title %}{{ post.title | decorator }}{% endblock %}
 
 {% block sidebar %}
     <aside>
@@ -18,7 +18,7 @@
 
     <article class="post">
         <header>
-            <h1>{{ post.title }}</h1>
+            <h1>{{ post.title | decorator }}</h1>
             <p>
                 {{ 'post.on' | trans }}
                 <time datetime="{{ post.createdAt | date('c') }}">

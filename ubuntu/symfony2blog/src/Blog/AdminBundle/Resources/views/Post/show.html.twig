@@ -3,7 +3,7 @@
 {% block title %}{{ post.title }}{% endblock %}
 
 {% block section %}
-    <h1>{{ post.title }}</h1>
+    <h1>{{ post.title | decorator }}</h1>
 
     <table>
         <tbody>
