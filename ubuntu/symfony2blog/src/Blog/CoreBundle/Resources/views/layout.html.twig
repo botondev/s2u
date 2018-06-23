@@ -9,7 +9,16 @@
         <p>Symfony 2 blog</p>
         <nav>
             <ul>
-                <li><a href="{{ path('blog_core_post_index') }}">{{ 'home' | trans }}</a></li>
+                <li><a href="{{ path('blog_core_home_index') }}">{{ 'home' | trans }}</a></li>
+                <li><a href="{{ path('blog_core_post_index') }}">{{ 'post.plural' | trans }}</a></li>
+                <li><a href="{{ path('blog_admin_default_index') }}">{{ 'admin' | trans }}</a></li>
+                <li>|</li>
+                {% if not app.user %}
+                    <li><a href="{{ path('fos_user_registration_register') }}">{{ 'register' | trans }}</a></li>
+                    <li><a href="{{ path('fos_user_security_login') }}">{{ 'login' | trans }}</a></li>
+                {% else %}
+                    <li><a href="{{ path('fos_user_security_logout') }}">{{ 'logout' | trans }}</a></li>
+                {% endif %}
             </ul>
         </nav>
     </header>

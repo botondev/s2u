@@ -1,4 +1,8 @@
 home: Home
+login: Log in
+logout: Log out
+admin: Admin
+register: Register
 
 on: on
 by: by
